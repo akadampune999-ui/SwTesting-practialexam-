@@ -1,0 +1,41 @@
+package practial_exam;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class test_form {
+	ChromeDriver Driver;
+	void launch_setup() {
+		Driver=new ChromeDriver();
+		Driver.manage().window().maximize();
+		Driver.get("https://demoqa.com/automation-practice-form");
+		Driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		
+		
+		
+	}
+	void practice() {
+		Driver.findElement(By.id("firstName")).sendKeys("aniket");
+		Driver.findElement(By.id("lastName")).sendKeys("kadam");
+		Driver.findElement(By.id("userEmail")).sendKeys("aniet123@gmail.com");
+		Driver.findElement(By.xpath("//*[@id=\"genterWrapper\"]/div[2]/div[1]/label")).click();
+		Driver.findElement(By.id("userNumber")).sendKeys("7620201361");
+		Driver.findElement(By.id("dateOfBirthInput")).sendKeys(Keys.CONTROL + "a");
+		Driver.findElement(By.id("dateOfBirthInput")).sendKeys("16 mar 2005");
+		Driver.findElement(By.id("dateOfBirthInput")).sendKeys(Keys.ENTER);
+		Driver.findElement(By.xpath("//*[@id=\"subjectsContainer\"]/div/div[1]")).sendKeys("marathi");
+		Driver.findElement(By.xpath("//label[text()='Sports']")).click();
+		Driver.findElement(By.id("currentAddress")).sendKeys("katraj pune");
+		
+		
+	}
+	public static void main(String[] args) {
+		test_form ob=new test_form();
+		ob.launch_setup();
+		ob.practice();
+	}
+
+}
